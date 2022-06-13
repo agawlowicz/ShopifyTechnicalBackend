@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Product>
+
+<div class="text-center">
+    <h1 class="display-4">Inventory</h1>
+</div>
+
+@*<p>Button to create a new poduct (links to InsertProduct View).
+    Displays table with information of all products currently in database.
+    Product names are clickable to view and update product information.</p>*@
+
+<div style="display: block">
+    <a href="/Product/InsertProduct/">Create a New Product</a>
+</div>
+
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Product</th>
+        <th>Cost</th>
+        <th>Stock</th>
+    </tr>
+
+    @foreach (var product in Model)
+    {
+        <tr>
+            <td>@product.ProductID</td>
+            <td><a href=/Product/ViewProduct/@product.ProductID title="Click to view and update product.">@product.Name</a></td>
+            <td>@product.Cost</td>
+            <td>@product.Stock</td>
+        </tr>
+    }
+</table>
