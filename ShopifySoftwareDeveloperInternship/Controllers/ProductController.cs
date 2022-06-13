@@ -30,6 +30,12 @@ namespace ShopifySoftwareDeveloperInternship.Controllers
             return View(products);
         }
 
+        public IActionResult InsertProduct()
+        {
+            var product = new Product();
+            return View(product);
+        }
+
         // TO DO: CHECK AGAIN w categories
         public IActionResult InsertProductToDatabase(Product product)
         {

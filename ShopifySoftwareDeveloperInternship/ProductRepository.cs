@@ -36,8 +36,8 @@ namespace ShopifySoftwareDeveloperInternship
 
         public void InsertProduct(Product product)
         {
-            _conn.Execute("INSERT INTO developerIntern VALUES (@id, @name, @cost, @stock);",
-                new { id = product.ProductID, name = product.Name, cost = product.Cost, stock = product.Stock });
+            _conn.Execute("INSERT INTO developerIntern (Name, Cost, Stock) VALUES (@name, @cost, @stock);",
+                new { name = product.Name, cost = product.Cost, stock = product.Stock });
         }
 
         public void UpdateProduct(Product product)

@@ -22,6 +22,10 @@
 </div>
 
 <div style="display: block">
+    <a href="/Product/InsertProduct/">Insert Product</a>
+</div>
+
+<div style="display: block">
     @using (Html.BeginForm("DeleteProduct", "Product", "Post"))
     {
         <input type="hidden" asp-for="ProductID" value="@Model.ProductID" />
