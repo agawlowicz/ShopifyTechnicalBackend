@@ -42,7 +42,7 @@ namespace ShopifySoftwareDeveloperInternship
 
         public void UpdateProduct(Product product)
         {
-            _conn.Execute("UPDATE developerIntern SET Product = @name, Cost = @cost, Stock = @stock WHERE ProductID = @id;",
+            _conn.Execute("UPDATE developerIntern SET Name = @name, Cost = @cost, Stock = @stock WHERE ProductID = @id;",
                 new { name = product.Name, cost = product.Cost, stock = product.Stock, id = product.ProductID });
         }
     }
