@@ -21,12 +21,6 @@
     <a href="/Product/UpdateProduct/@Model.ProductID">Update this Product</a>
 </div>
 
-
-
 <div style="display: block">
-    @using (Html.BeginForm("DeleteProduct", "Product", "Post"))
-    {
-        <input type="hidden" asp-for="ProductID" value="@Model.ProductID" />
-        <input type="submit" onclick="return confirm('Are you sure?')" value="Delete this product" />
-    }
+    <a href="/Product/DeleteProduct/@Model.ProductID">Delete this Product</a>
 </div>

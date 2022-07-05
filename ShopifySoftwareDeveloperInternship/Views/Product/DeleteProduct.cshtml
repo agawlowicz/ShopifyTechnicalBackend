@@ -1,0 +1,18 @@
+﻿@model Deleted
+
+<h2>Delete @Model.Name</h2>
+
+<div style="display: block">
+    @using (Html.BeginForm("AddDeletedProduct", "Product", "Post"))
+    {
+        <input type="hidden" asp-for="ProductID" value="@Model.ProductID" />
+        <input asp-for="Name" type="hidden" value="" />
+        <input asp-for="Cost" type="hidden" value="" />
+        <input asp-for="Stock" type="hidden" value="" />
+
+        <label asp-for="Comment" class="control-label">Deletion Comment</label>
+        <input type="text" name="Comment" class="form-control" value="" />
+
+        <input type="submit" onclick="return confirm('Are you sure?')" value="Delete this product" />
+    }
+</div>

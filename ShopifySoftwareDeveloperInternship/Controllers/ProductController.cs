@@ -12,17 +12,35 @@ namespace ShopifySoftwareDeveloperInternship.Controllers
     public class ProductController : Controller
     {
         private readonly IProductRepository repo;
+        private readonly IDeletionRepository repo2;
 
         public ProductController(IProductRepository repo)
         {
             this.repo = repo;
         }
 
-        public IActionResult DeleteProduct(Product product)
+        public IActionResult DeleteProduct(int id)
         {
-            repo.DeleteProduct(product);
+            Product prod = repo.GetProduct(id);
+
+            // Null check
+            return (prod == null) ? View("ProductNotFound") : View(prod);
+            //return View(product);
+        }
+
+        public IActionResult AddDeletedProduct(Deleted deletion)
+        {
+            repo2.DeleteProduct(deletion);
+            repo.DeleteProduct(deletion.Product);
             return RedirectToAction("Index");
         }
+
+        //public IActionResult DeleteProduct(Product product)
+        //{
+        //    repo.
+        //    repo.DeleteProduct(product);
+        //    return RedirectToAction("Index");
+        //}
 
         public IActionResult Index()
         {

@@ -15,7 +15,6 @@ namespace ShopifySoftwareDeveloperInternship
         {
             _conn = conn;
         }
-
         public void DeleteProduct(Product product)
         {
             _conn.Execute("DELETE FROM developerIntern WHERE ProductID = @id;", new { id = product.ProductID });
